@@ -8,6 +8,7 @@
     "verbatimModuleSyntax": true,
     "isolatedDeclarations": true,
     "declaration": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "rewriteRelativeImportExtensions": true
   }
 }
