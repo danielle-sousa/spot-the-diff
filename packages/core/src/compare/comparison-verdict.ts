@@ -18,11 +18,15 @@ export function getComparisonVerdict(input: ComparisonInput): ComparisonVerdict 
     throw new RangeError('totalPixels must be greater than zero');
   }
 
-  const diffPercent = (input.changedPixels / input.totalPixels) * 100;
+  const diffPercent = calculateDiffPercent(input);
 
   if (diffPercent <= input.maxDiffPercent) {
     return { status: 'unchanged', diffPercent };
   }
 
   return { status: 'changed', diffPercent };
+}
+
+export function calculateDiffPercent(input: ComparisonInput): number {
+    return (input.changedPixels / input.totalPixels) * 100
 }
