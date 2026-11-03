@@ -1,14 +1,12 @@
 {
-  "name": "spot-the-diff",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "name": "spot-the-diff-monorepo",
+  "private": true,
+  "description": "Visual regression testing for pull requests",
+  "license": "MIT",
+  "type": "module",
+  "engines": {
+    "node": ">=22"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "devEngines": {
     "packageManager": {
       "name": "pnpm",
@@ -16,6 +14,5 @@
       "onFail": "download"
     }
   },
-  "packageManager": "pnpm@12.16.1",
-  "type": "module"
+  "packageManager": "pnpm@12.16.1"
 }
