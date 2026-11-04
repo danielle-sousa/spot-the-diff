@@ -1,2 +1,2 @@
-export { getComparisonVerdict } from './compare/comparison-verdict.ts';
-export type { ComparisonInput, ComparisonVerdict } from './compare/comparison-verdict.ts';
+export { compareScreenshots } from './compare/compare-screenshots.ts';
+export type { CompareOptions, ScreenshotComparison } from './compare/compare-screenshots.ts';
