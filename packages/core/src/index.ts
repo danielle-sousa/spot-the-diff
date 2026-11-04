@@ -1,7 +1,13 @@
+export { getComparisonVerdict } from './compare/comparison-verdict.ts';
+export type { ComparisonInput, ComparisonVerdict } from './compare/comparison-verdict.ts';
 export { compareScreenshots } from './compare/compare-screenshots.ts';
 export type { CompareOptions, ScreenshotComparison } from './compare/compare-screenshots.ts';
+export { openScreenshotSession } from './capture/screenshot-session.ts';
+export type { ScreenshotRequest, ScreenshotSession, Viewport } from './capture/screenshot-session.ts';
 export { ConfigError } from './config/config-error.ts';
 export type { ConfigErrorCode } from './config/config-error.ts';
 export { parseVisualConfig } from './config/visual-config.ts';
 export type { RouteConfig, ViewportConfig, VisualConfig } from './config/visual-config.ts';
 export { loadVisualConfig } from './config/load-visual-config.ts';
+export { runVisualCheck } from './run/run-visual-check.ts';
+export type { RunVisualCheckOptions, ScreenshotResult } from './run/run-visual-check.ts';
