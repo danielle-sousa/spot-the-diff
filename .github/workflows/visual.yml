@@ -1,0 +1,47 @@
+name: Visual regression
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, labeled]
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: visual-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  visual:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: pnpm/action-setup@v6
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version-file: .nvmrc
+          cache: pnpm
+
+      - run: pnpm install --frozen-lockfile
+
+      - run: pnpm build
+
+      - name: Start the demo app
+        working-directory: examples/bank-demo
+        run: |
+          pnpm start &
+          for attempt in $(seq 1 30); do
+            curl --silent --fail http://localhost:4321 > /dev/null && exit 0
+            sleep 1
+          done
+          echo "The demo app did not start within 30 seconds" && exit 1
+
+      - uses: ./
+        with:
+          config: examples/bank-demo/visual.config.json
+          fail-on-diff: true

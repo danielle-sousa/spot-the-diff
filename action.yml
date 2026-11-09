@@ -1,0 +1,47 @@
+name: spot-the-diff
+description: Spot visual changes before your users do. Screenshots every route, compares them and comments on the pull request.
+branding:
+  icon: eye
+  color: purple
+
+inputs:
+  config:
+    description: Path to the spot-the-diff config file
+    default: visual.config.json
+  baseline-branch:
+    description: Branch that stores baselines and pull request screenshots
+    default: visual-baselines
+  fail-on-diff:
+    description: Fail the check when a screen changed, until the visual-approved label is added
+    default: 'false'
+  github-token:
+    description: Token used to push screenshots and comment on the pull request
+    default: ${{ github.token }}
+
+outputs:
+  changed:
+    description: Number of screens that changed
+    value: ${{ steps.check.outputs.changed }}
+  new:
+    description: Number of screens without a baseline
+    value: ${{ steps.check.outputs.new }}
+
+# For now the Action runs from this repository's own build: the workflow must
+# install and build the workspace before using it. Publishing to npm will
+# remove that requirement.
+runs:
+  using: composite
+  steps:
+    - name: Install Chromium
+      shell: bash
+      run: pnpm --dir "$GITHUB_ACTION_PATH/packages/core" exec playwright install --with-deps chromium
+
+    - name: Run spot-the-diff
+      id: check
+      shell: bash
+      run: node "$GITHUB_ACTION_PATH/packages/action/dist/main.mjs"
+      env:
+        INPUT_CONFIG: ${{ inputs.config }}
+        INPUT_BASELINE_BRANCH: ${{ inputs.baseline-branch }}
+        INPUT_FAIL_ON_DIFF: ${{ inputs.fail-on-diff }}
+        INPUT_GITHUB_TOKEN: ${{ inputs.github-token }}
