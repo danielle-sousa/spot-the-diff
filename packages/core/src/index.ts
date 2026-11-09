@@ -11,3 +11,6 @@ export type { RouteConfig, ViewportConfig, VisualConfig } from './config/visual-
 export { loadVisualConfig } from './config/load-visual-config.ts';
 export { runVisualCheck } from './run/run-visual-check.ts';
 export type { RunVisualCheckOptions, ScreenshotResult } from './run/run-visual-check.ts';
+export { formatDiffPercent } from './report/format-diff-percent.ts';
+export { REPORT_MARKER, buildPullRequestReport, countResultsByStatus } from './report/build-pull-request-report.ts';
+export type { ReportOptions, ResultCounts } from './report/build-pull-request-report.ts';
