@@ -12,13 +12,13 @@ import {
   type VisualConfig,
 } from '@spot-the-diff/core';
 import { readActionInputs, type ActionInputs } from './action-inputs.ts';
-import { openBaselineBranch, type BaselineBranch } from './baseline-branch.ts';
-import { APPROVAL_LABEL, shouldFailCheck } from './check-decision.ts';
-import { createGitHubCommentApi } from './github-comment-api.ts';
-import { toEventContext } from './github-event.ts';
-import { createImageUrl } from './image-url.ts';
-import { upsertReportComment } from './report-comment.ts';
-import { getRunTarget, type RunTarget } from './run-target.ts';
+import { openBaselineBranch, type BaselineBranch } from './storage/baseline-branch.ts';
+import { APPROVAL_LABEL, shouldFailCheck } from './pull-request/check-decision.ts';
+import { createGitHubCommentApi } from './pull-request/github-comment-api.ts';
+import { toEventContext } from './event/github-event.ts';
+import { createImageUrl } from './storage/image-url.ts';
+import { upsertReportComment } from './pull-request/report-comment.ts';
+import { getRunTarget, type RunTarget } from './event/run-target.ts';
 
 type PullRequestTarget = Extract<RunTarget, { kind: 'pull-request' }>;
 type BaselineUpdateTarget = Extract<RunTarget, { kind: 'baseline-update' }>;
