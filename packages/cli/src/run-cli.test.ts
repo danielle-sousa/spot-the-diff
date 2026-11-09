@@ -2,7 +2,7 @@ import { mkdir, mkdtemp, readdir, rm, writeFile } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { afterEach, beforeEach, describe, expect, it } from 'vitest';
-import { EXIT_CODE } from './check-outcome.ts';
+import { EXIT_CODE } from './output/check-outcome.ts';
 import { runCli, type CliOutput } from './run-cli.ts';
 
 function captureOutput(): CliOutput & { lines: string[]; errors: string[] } {

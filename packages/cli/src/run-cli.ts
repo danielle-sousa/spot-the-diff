@@ -7,10 +7,10 @@ import {
   loadVisualConfig,
   runVisualCheck,
 } from '@spot-the-diff/core';
-import { approveScreenshots } from './approve-screenshots.ts';
+import { approveScreenshots } from './commands/approve-screenshots.ts';
 import { CliUsageError } from './cli-usage-error.ts';
-import { EXIT_CODE, formatTerminalSummary, getCheckExitCode } from './check-outcome.ts';
-import { HELP_TEXT, parseCliArgs, type CliCommand } from './parse-cli-args.ts';
+import { EXIT_CODE, formatTerminalSummary, getCheckExitCode } from './output/check-outcome.ts';
+import { HELP_TEXT, parseCliArgs, type CliCommand } from './args/parse-cli-args.ts';
 
 /** Where the CLI writes. Injected so tests can capture output instead of printing it. */
 export interface CliOutput {
