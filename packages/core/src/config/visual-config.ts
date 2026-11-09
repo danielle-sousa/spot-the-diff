@@ -52,7 +52,7 @@ const routeSchema = z.object({
 const visualConfigSchema: z.ZodType<VisualConfig> = z.object({
   baseUrl: z.url(),
   threshold: z.number().min(0).max(1).default(0.1),
-  maxDiffPercent: z.number().min(0).max(100).default(0.5),
+  maxDiffPercent: z.number().min(0).max(100).default(0),
   viewports: z.array(viewportSchema).min(1).refine(hasUniqueNames, 'Each viewport needs a unique name'),
   routes: z.array(routeSchema).min(1).refine(hasUniqueNames, 'Each route needs a unique name'),
 });

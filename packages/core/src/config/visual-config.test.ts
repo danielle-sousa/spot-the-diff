@@ -26,7 +26,7 @@ describe('parseVisualConfig', () => {
     const config = parseVisualConfig(buildRawConfig());
 
     expect(config.threshold).toBe(0.1);
-    expect(config.maxDiffPercent).toBe(0.5);
+    expect(config.maxDiffPercent).toBe(0);
     expect(config.routes[0]?.mask).toEqual([]);
   });
 
