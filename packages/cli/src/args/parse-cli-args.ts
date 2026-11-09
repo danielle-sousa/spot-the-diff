@@ -1,5 +1,5 @@
 import { parseArgs } from 'node:util';
-import { CliUsageError } from './cli-usage-error.ts';
+import { CliUsageError } from '../cli-usage-error.ts';
 
 export type CliCommand =
   | { name: 'check'; configPath: string; baselineDir: string; outputDir: string; failOnDiff: boolean }

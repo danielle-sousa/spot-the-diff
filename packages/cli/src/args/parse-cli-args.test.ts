@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { CliUsageError } from './cli-usage-error.ts';
+import { CliUsageError } from '../cli-usage-error.ts';
 import { parseCliArgs } from './parse-cli-args.ts';
 
 describe('parseCliArgs', () => {
