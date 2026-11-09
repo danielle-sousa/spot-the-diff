@@ -1,0 +1,11 @@
+{
+  "baseUrl": "http://localhost:4321",
+  "viewports": [
+    { "name": "mobile", "width": 390, "height": 844 },
+    { "name": "desktop", "width": 1280, "height": 800 }
+  ],
+  "routes": [
+    { "name": "home", "path": "/", "mask": ["#updated-at"] },
+    { "name": "extrato", "path": "/extrato", "waitFor": "#extrato" }
+  ]
+}

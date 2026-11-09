@@ -1,0 +1,14 @@
+{
+  "name": "@spot-the-diff/example-bank-demo",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "serve site --listen 4321",
+    "visual": "spot-the-diff check",
+    "visual:approve": "spot-the-diff approve"
+  },
+  "devDependencies": {
+    "serve": "^14.2.7",
+    "spot-the-diff": "workspace:*"
+  }
+}

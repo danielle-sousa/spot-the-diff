@@ -1,0 +1,9 @@
+body { margin: 0; font-family: system-ui, sans-serif; background: #f6f5fb; color: #1d1b2c; }
+header { background: #2d1b69; color: #fff; padding: 16px 24px; font-weight: 600; }
+main { padding: 24px; }
+.card { background: #fff; border-radius: 12px; padding: 20px; margin-bottom: 16px; }
+.balance { font-size: 28px; font-weight: 700; }
+.button { background: #6d4aff; color: #fff; border: 0; border-radius: 8px; padding: 12px 20px; font-size: 15px; }
+ul { list-style: none; padding: 0; margin: 0; }
+li { display: flex; justify-content: space-between; padding: 12px 0; border-bottom: 1px solid #ece9f6; }
+.updated-at { color: #6b6880; font-size: 13px; }
