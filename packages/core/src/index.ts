@@ -14,3 +14,4 @@ export type { RunVisualCheckOptions, ScreenshotResult } from './run/run-visual-c
 export { formatDiffPercent } from './report/format-diff-percent.ts';
 export { REPORT_MARKER, buildPullRequestReport, countResultsByStatus } from './report/build-pull-request-report.ts';
 export type { ReportOptions, ResultCounts } from './report/build-pull-request-report.ts';
+export { copyScreenshotsToBaselines } from './baselines/copy-screenshots-to-baselines.ts';
